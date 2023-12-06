@@ -27,7 +27,59 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // set security HTTP headers
-app.use(helmet());
+app.use(
+  helmet({
+    contentSecurityPolicy: {
+      directives: {
+        defaultSrc: ["'self'", 'https:', 'http:', 'data:', 'ws:'],
+        baseUri: ["'self'"],
+        fontSrc: ["'self'", 'https:', 'http:', 'data:'],
+        scriptSrc: [
+          "'self'",
+          'https:',
+          'http:',
+          'blob:',
+          'https://*.mapbox.com',
+          'https://js.stripe.com',
+          'https://m.stripe.network',
+          'https://*.cloudflare.com',
+          'https://index.js:*',
+          'ws:'
+        ],
+        styleSrc: ["'self'", "'unsafe-inline'", 'https:', 'http:'],
+        workerSrc: [
+          "'self'",
+          'data:',
+          'blob:',
+          'https://*.tiles.mapbox.com',
+          'https://api.mapbox.com',
+          'https://events.mapbox.com',
+          'https://m.stripe.network'
+        ],
+        frameSrc: ["'self'", 'https://js.stripe.com'],
+        childSrc: ["'self'", 'blob:'],
+        objectSrc: ["'none'"],
+        imgSrc: ["'self'", 'data:', 'blob:'],
+        formAction: ["'self'"],
+        connectSrc: [
+          "'self'",
+          'https:',
+          'http:',
+          'ws:',
+          "'unsafe-inline'",
+          'data:',
+          'blob:',
+          'https://*.stripe.com',
+          'https://*.mapbox.com',
+          'https://*.cloudflare.com/',
+          'https://index.js:*',
+          'http://127.0.0.1:*/'
+        ],
+        upgradeInsecureRequests: []
+      }
+    }
+  })
+);
 
 // development logging
 if (process.env.NODE_ENV === 'development') {

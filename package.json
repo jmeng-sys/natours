@@ -2,12 +2,13 @@
   "name": "natours",
   "version": "1.0.0",
   "description": "learning node, express and mongoDB",
-  "main": "app.js",
+  "main": "server.js",
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "targets": {
     "main": false,
     "default": {
-      "distDir": "./public/dist"
+      "distDir": "./public/dist",
+      "includeNodeModules": true
     }
   },
   "scripts": {
@@ -16,7 +17,7 @@
     "debug": "ndb server.js",
     "debug:prod": "set NODE_ENV=production&&ndb server.js",
     "watch:js": "parcel watch ./public/js/index.js",
-    "build:js": "parcel build ./public/js/index.js --dist-dir ./public/js --out-file bundle.js"
+    "build:js": "parcel build ./public/js/index.js"
   },
   "author": "Jin",
   "license": "ISC",
@@ -42,6 +43,7 @@
     "multer": "^1.4.5-lts.1",
     "nodemailer": "^6.9.7",
     "pug": "^3.0.2",
+    "regenerator-runtime": "^0.14.0",
     "sharp": "^0.33.0",
     "slugify": "^1.6.6",
     "stripe": "^14.7.0",

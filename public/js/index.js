@@ -1,10 +1,10 @@
 /* eslint-disable */
 import 'core-js/stable';
-import { displayMap } from './mapbox';
-import { login, logout } from './login';
-import { updateSettings } from './updateSettings';
-import { bookTour } from './stripe';
-import { showAlert } from './alerts';
+import { displayMap } from './mapbox.js';
+import { login, logout } from './login.js';
+import { updateSettings } from './updateSettings.js';
+import { bookTour } from './stripe.js';
+import { showAlert } from './alerts.js';
 
 // DOM ELEMENTS
 const mapBox = document.getElementById('map');
