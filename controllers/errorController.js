@@ -37,16 +37,10 @@ const sendErrorDev = (err, req, res) => {
   } else {
     // render website error
     console.error('ERROR 💥', err);
-    res
-      .status(err.statusCode)
-      .set(
-        'Content-Security-Policy',
-        "connect-src 'self' http://127.0.0.1:8000 ws:;"
-      )
-      .render('error', {
-        title: 'Something went wrong!',
-        msg: err.message
-      });
+    res.status(err.statusCode).render('error', {
+      title: 'Something went wrong!',
+      msg: err.message
+    });
   }
 };
 
@@ -71,16 +65,10 @@ const sendErrorProd = (err, req, res) => {
 
   // B) render website error
   if (err.isOperational) {
-    return res
-      .status(err.statusCode)
-      .set(
-        'Content-Security-Policy',
-        "connect-src 'self' http://127.0.0.1:8000 ws:;"
-      )
-      .render('error', {
-        title: 'Something went wrong!',
-        msg: err.message
-      });
+    return res.status(err.statusCode).render('error', {
+      title: 'Something went wrong!',
+      msg: err.message
+    });
   }
   // non-operational, Programming or other unknown error: don't leak error details
   // 1) Log error

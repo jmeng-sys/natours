@@ -19,7 +19,12 @@
     "no-unused-vars": ["warn", { "argsIgnorePattern": "req|res|next|val" }],
     "prefer-const": "off",
     "prefer-arrow-callback": "off",
-    "arrow-body-style": "off"
+    "arrow-body-style": "off",
+    "node/no-unsupported-features/es-syntax": [
+      "error",
+      { "ignores": ["modules"] }
+    ],
+    "no-undef": "off"
   },
   "parserOptions": {
     "sourceType": "module",
