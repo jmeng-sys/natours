@@ -16,7 +16,7 @@
     "debug": "ndb server.js",
     "debug:prod": "set NODE_ENV=production&&ndb server.js",
     "watch:js": "parcel watch ./public/js/index.js",
-    "build:js": "parcel build ./public/js/index.js --dist-dir ./public/js --out-file bundle.js"
+    "build:js": "parcel build ./public/js/index.js"
   },
   "author": "Jin",
   "license": "ISC",
