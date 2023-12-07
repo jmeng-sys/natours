@@ -1,6 +1,9 @@
 /* eslint-disable */
+const mapBox = document.getElementById('map');
 
-export const displayMap = (locations) => {
+if (mapBox) {
+  const locations = JSON.parse(mapBox.dataset.locations);
+
   mapboxgl.accessToken =
     'pk.eyJ1Ijoiamluc21hcCIsImEiOiJjbHBmeTRycDExaHA2MmpvYnJycXhxOTJ6In0.YNLbTdxRwrcm8AX8mp4QJw';
 
@@ -11,7 +14,6 @@ export const displayMap = (locations) => {
     center: [-114.066666, 51.049999],
     zoom: 10
   });
-
   const bounds = new mapboxgl.LngLatBounds();
 
   locations.forEach((loc) => {
@@ -47,4 +49,4 @@ export const displayMap = (locations) => {
       right: 100
     }
   });
-};
+}

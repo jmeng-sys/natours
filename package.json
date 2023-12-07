@@ -3,21 +3,11 @@
   "version": "1.0.0",
   "description": "learning node, express and mongoDB",
   "main": "server.js",
-  "browserslist": "> 0.5%, last 2 versions, not dead",
-  "targets": {
-    "main": false,
-    "default": {
-      "distDir": "./public/dist",
-      "includeNodeModules": true
-    }
-  },
   "scripts": {
     "start": "nodemon server.js",
     "start:prod": "set NODE_ENV=production&&nodemon server.js",
     "debug": "ndb server.js",
-    "debug:prod": "set NODE_ENV=production&&ndb server.js",
-    "watch:js": "parcel watch ./public/js/index.js",
-    "build:js": "parcel build ./public/js/index.js"
+    "debug:prod": "set NODE_ENV=production&&ndb server.js"
   },
   "author": "Jin",
   "license": "ISC",
